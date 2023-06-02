@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddProductController">
+   <children>
+      <GridPane alignment="center" hgap="10" style="-fx-border-color: black; -fx-border-radius: 5; -fx-margin: 20; -fx-padding: 20;" vgap="10">
+          <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <Label text="Add Product">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+              <HBox>
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+      
+                        <Label prefWidth="100" text="ID" />
+                  <TextField editable="false" prefWidth="100" promptText="Auto Gen- Disabled" />
+              </HBox>
+              <HBox>
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <Label prefWidth="100" text="Name" />
+                  <TextField fx:id="nameTxt" prefWidth="100" />
+              </HBox>
+              <HBox>
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <Label prefWidth="100" text="Inv" />
+                  <TextField fx:id="invTxt" prefWidth="100" />
+              </HBox>
+              <HBox>
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <Label prefWidth="100" text="Price" />
+                  <TextField fx:id="priceTxt" prefWidth="100" />
+              </HBox>
+              <TilePane>
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <Label prefWidth="100" text="Max" />
+                  <TextField fx:id="maxTxt" prefWidth="100" />
+                  <Label alignment="CENTER" prefWidth="100" text="Min" />
+                  <TextField fx:id="minTxt" prefWidth="100" />
+              </TilePane>
+          </VBox>
+          <VBox GridPane.columnIndex="3" GridPane.rowIndex="0">
+              <HBox alignment="TOP_RIGHT">
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <TextField fx:id="partsSearch" onKeyPressed="#partSearchType" prefWidth="135" promptText="Search by Part ID or Name" />
+                  <Button onAction="#partSearchClicked" prefWidth="100" text="Search" />
+              </HBox>
+              <HBox>
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <TableView fx:id="partsTableView">
+                      <columns>
+                          <TableColumn fx:id="partsId" text="Part ID" />
+                          <TableColumn fx:id="partsName" text="Part Name" />
+                          <TableColumn fx:id="partsInv" text="Inventory Level" />
+                          <TableColumn fx:id="partsPrice" text="Price/Cost per Unit" />
+                      </columns>
+                  </TableView>
+              </HBox>
+              <HBox alignment="BASELINE_RIGHT">
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <Button fx:id="addPartBtn" onAction="#addPartClicked" text="Add">
+                  <HBox.margin>
+                     <Insets right="40.0" />
+                  </HBox.margin>
+               </Button>
+              </HBox>
+              <HBox>
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <TableView fx:id="assocPartsTableView">
+                      <columns>
+                          <TableColumn fx:id="assocPartsId" text="Part ID" />
+                          <TableColumn fx:id="assocPartsName" text="Part Name" />
+                          <TableColumn fx:id="assocPartsInv" text="Inventory Level" />
+                          <TableColumn fx:id="assocPartsPrice" text="Price/Cost per Unit" />
+                      </columns>
+                  </TableView>
+              </HBox>
+              <HBox alignment="BASELINE_RIGHT">
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <Button onAction="#removePartClicked" text="Remove Associated Part">
+                  <HBox.margin>
+                     <Insets right="20.0" />
+                  </HBox.margin>
+               </Button>
+              </HBox>
+              <HBox alignment="BASELINE_RIGHT">
+                  <padding>
+                      <Insets bottom="5.0" top="5.0" />
+                  </padding>
+                  <Button fx:id="saveBtn" onAction="#saveBtnClicked" text="Save">
+                  <HBox.margin>
+                     <Insets right="50.0" />
+                  </HBox.margin>
+               </Button>
+                  <Button fx:id="cancelBtn" onAction="#cancelBtnClicked" text="Cancel">
+                  <HBox.margin>
+                     <Insets right="20.0" />
+                  </HBox.margin>
+               </Button>
+              </HBox>
+          </VBox>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</VBox>

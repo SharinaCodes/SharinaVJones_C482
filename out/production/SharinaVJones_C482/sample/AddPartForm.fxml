@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="TOP_LEFT" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="sample.AddPartController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <Label prefWidth="100" text="Add Part">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+        <fx:define>
+            <ToggleGroup fx:id="togglePart" />
+        </fx:define>
+        <RadioButton fx:id="partInRadio" onAction="#partInRadioSelected" prefWidth="120" selected="true" text="In-House"
+                     toggleGroup="$togglePart" />
+
+        <RadioButton fx:id="partOutRadio" onAction="#partOutRadioSelected" prefWidth="120" text="Outsourced" toggleGroup="$togglePart" />
+
+    </HBox>
+    <VBox GridPane.columnIndex="0" GridPane.rowIndex="3">
+        <HBox>
+            <padding>
+                <Insets bottom="5.0" top="5.0" />
+            </padding>
+
+            <Label prefWidth="100" text="ID" />
+            <TextField fx:id="idTxt" editable="false" prefWidth="100" promptText="Auto Gen- Disabled" />
+        </HBox>
+        <HBox>
+            <padding>
+                <Insets bottom="5.0" top="5.0" />
+            </padding>
+            <Label prefWidth="100" text="Name" />
+            <TextField fx:id="nameTxt" prefWidth="100" />
+        </HBox>
+        <HBox>
+            <padding>
+                <Insets bottom="5.0" top="5.0" />
+            </padding>
+            <Label prefWidth="100" text="Inv" />
+            <TextField fx:id="invTxt" prefWidth="100" />
+        </HBox>
+        <HBox>
+            <padding>
+                <Insets bottom="5.0" top="5.0" />
+            </padding>
+            <Label prefWidth="100" text="Price/Cost" />
+            <TextField fx:id="priceTxt" prefWidth="100" />
+        </HBox>
+        <HBox>
+            <padding>
+                <Insets bottom="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Label prefWidth="100" text="Max" />
+            <TextField fx:id="maxTxt" prefWidth="100" />
+            <Label alignment="CENTER" prefWidth="100" text="Min" />
+            <TextField fx:id="minTxt" prefWidth="100" />
+        </HBox>
+        <HBox>
+            <padding>
+                <Insets bottom="5.0" top="5.0" />
+            </padding>
+            <Label fx:id="toggleLbl" prefWidth="100" text="Machine ID" />
+            <TextField fx:id="toggleTxt" prefWidth="100" />
+        </HBox>
+    </VBox>
+    <HBox alignment="BOTTOM_RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="5">
+        <Button fx:id="saveBtn" onAction="#saveBtnClicked" text="Save">
+         <HBox.margin>
+            <Insets right="20.0" />
+         </HBox.margin></Button>
+        <Button fx:id="cancelBtn" onAction="#cancelBtnClicked" text="Cancel">
+         <HBox.margin>
+            <Insets right="50.0" />
+         </HBox.margin></Button>
+    </HBox>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+
+</GridPane>
